@@ -1451,11 +1451,19 @@
                       name: t + "-config",
                       url: "/" + e + "/packs/" + t + ".json",
                     },
+                  ];
+                if(t==="common") {
+                  n = [
+                    {
+                      name: t + "-config",
+                      url: "/" + e + "/packs/" + t + ".json",
+                    },
                     {
                       name: t + "-pack",
                       url: "/" + e + "/packs/" + t + ".pack",
                     },
                   ];
+                }
                 this._addManifest(n);
               },
             },
@@ -1552,6 +1560,7 @@
                     : null;
                 switch ((n || (n = this._detectFormat(e)), n)) {
                   case t.RAW_FORMAT:
+                    console.error('RAW_FORMAT getData', this.getData(e))
                     return this.getData(e);
                   case t.STRING_FORMAT:
                     return this.getAsString(e);
@@ -1611,7 +1620,7 @@
                 var file = this._findFile(t);
                 if(file.url) {
                   n = this.getType(t);
-                  console.error('getAsURI', t, 'type', n, 'file', file)
+                  // console.error('getAsURI', t, 'type', n, 'file', file)
                   return `/res/${file.url}`;
                 }
                 var e = this.getData(t),

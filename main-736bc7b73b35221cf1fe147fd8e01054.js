@@ -24026,7 +24026,9 @@
         this.projects = [],
         this.projectsDico = r.default.projects;
         var t = 0;
+        console.log('r.default.projects' ,r);
         for (var n in r.default.projects)
+            console.log('r.default.projects n' ,n),
             this.projectsDico[n].index = t,
             t++,
             this.projects.push(this.projectsDico[n]);
@@ -25238,6 +25240,7 @@
                         var o = e[n];
                         switch (o.extension) {
                         case "json":
+                            console.error(o)
                             o.data = JSON.parse(o.data),
                             i.resolve();
                             break;
@@ -27140,29 +27143,29 @@
     e.exports = {
         projects: {
             "fanny-myard": {
-                title: "Fanny Myard",
+                title: "Love story",
                 ref: "fanny-myard",
-                spacings: [-13.622, 5.319, 7.386, 7.73, 8.074, -.308, 9.452, 9.108, 5.664, 7.386, 7.386],
-                sideOffset: 0,
+                spacings: [-13.622, 6.319, 6.319, 6.319, 9.319, -.308, 6.664, 5.164, 5.664, 8.386],
+                sideOffset: .022,
                 counter: {
                     text: "01",
                     offsetX: .1752,
-                    spacings: [0, 32]
+                    spacings: [0, 38]
                 },
                 date: {
-                    text: "2017",
+                    text: "2019.04",
                     offsetX: -.1562,
-                    spacings: [0, 35, 35, 35]
+                    spacings: [0, 35, 35, 35, 35, 35, 35]
                 },
-                role: "Creative direction, Interface design, User experience design",
-                link: {
-                    text: "fannymyard-design.com",
-                    href: "http://fannymyard-design.com/"
-                },
+                // role: "Creative direction, Interface design, User experience design",
+                // link: {
+                //     text: "fannymyard-design.com",
+                //     href: "http://fannymyard-design.com/"
+                // },
                 bgs: [{
-                    start: 4,
-                    end: 6,
-                    color: 1323
+                    start: 5,
+                    end: 7,
+                    color: 16728128
                 }],
                 modules: [{
                     type: "desc",
@@ -27179,7 +27182,15 @@
                     size: [1400, 800],
                     id: "img-1",
                     top: "xs"
-                }, {
+                }, 
+                {
+                    type: "desc",
+                    id: "text1",
+                    title: "text1",
+                    text: "Fanny Myard is a young Belgian fashion designer. Her first range of ready-to-wear clothes, CMYK, enlights her creativity and sensitivity as an artist. The website stages each collection in a different universe with vibrant colors and graphic patterns.",
+                    top: "xl"
+                }, 
+                {
                     type: "fs",
                     size: [1600, 780],
                     id: "fs-0",
@@ -27209,10 +27220,6 @@
                     size: [1400, 800],
                     id: "img-5",
                     top: "xl"
-                }, {
-                    type: "infos",
-                    top: "xl",
-                    bottom: "xl"
                 }]
             },
             "veuve-clicquot": {
@@ -38004,6 +38011,7 @@
             }, {
                 key: "_createTitles",
                 value: function() {
+                    console.log('_createTitles',this._cloneConfig)
                     for (var e = 0, t = this._projects.length; e < t; e++) {
                         var n = new s.default(this,this._state.projects[e],e);
                         this._entities.push(n),
@@ -38262,6 +38270,7 @@
                 o._bind(),
                 o._create(),
                 o._isCloned || o._createGUI(),
+                console.log('o',o),
                 o
             }
             return function(e, t) {
@@ -38328,6 +38337,7 @@
                             this.letters.push(" ");
                         else {
                             var r = this._createLetter(n, this._loader.get("common.alternate-font"), this._material, !0, e);
+                            // console.log('create letter', r)
                             this.letters.push(r)
                         }
                     }
@@ -38405,6 +38415,7 @@
                     for (var i = function(t, n) {
                         var r = e.letters[t]
                           , i = e._guiSpacing[t];
+                        //   console.log('text unde', i, t, r)
                         e._guiFolder.add(i, "value").min(-15).max(15).step(.001).name("#" + t + " - " + r.text).onChange(function() {
                             e._spacings[t] = e._guiSpacing[t].value
                         })
@@ -47106,7 +47117,7 @@ object-assign
     ).call(this, n(1).bind)
 }
 , function(e, t) {
-    e.exports = '{% set project = l10n.projects[route.parameters.id] %}\n\n<div class="page page--animation-in project">\n  <div data-component="ProgressBar"></div>\n  {% for module in project.modules %}\n    {% if module.type == \'desc\' %}\n      <div\n      data-component="ProjectDesc"\n      data-id="{{module.id}}"\n      data-title="{{module.title}}"\n      data-text="{{module.text}}"\n      ></div>\n    {% endif %}\n  {% endfor %}\n    <div\n      data-component="ProjectInfos"\n      data-id="{{route.parameters.id}}"\n      data-role="{{project.role}}"\n      data-date="{{project.date.text}}"\n      data-href="{{project.link.href}}"\n      data-linktext="{{project.link.text}}"\n    >\n  </div>\n</div>\n'
+    e.exports = '{% set project = l10n.projects[route.parameters.id] %}\n\n<div class="page page--animation-in project">\n  <div data-component="ProgressBar"></div>\n  {% for module in project.modules %}\n    {% if module.type == \'desc\' %}\n      <div\n      data-component="ProjectDesc"\n      data-id="{{module.id}}"\n      data-title="{{module.title}}"\n      data-text="{{module.text}}"\n      ></div>\n    {% endif %}\n  {% endfor %}\n    <div\n      data-component="ProjectInfos"\n      data-id="{{route.parameters.id}}"\n      data-href="{{project.link.href}}"\n      data-linktext="{{project.link.text}}"\n    >\n  </div>\n</div>\n'
 }
 , function(e, t) {
     e.exports = '<div class="project-desc project-desc--{{id}} project-desc--is-hidden">\n  <h2 class="project-desc__title">{{title}}</h2>\n  <p class="project-desc__text">{{text}}</p>\n</div>'
@@ -47115,7 +47126,7 @@ object-assign
     e.exports = '<div class="progress-bar progress-bar--is-hidden">\n  <div class="progress-bar__el" data-el="bar"></div>\n</div>'
 }
 , function(e, t) {
-    e.exports = '<div class="project-infos project-infos--{{ id }} project-infos--is-hidden">\n\n  <ul class="project-infos__list">\n\n    <li class="project-infos__el project-infos__el--client">\n      <h4 class="project-infos__title">Role</h4>\n      <span class="project-infos__text">{{ role }}</span>\n    </li>\n\n    <li class="project-infos__el project-infos__el--year">\n      <h4 class="project-infos__title">Year</h4>\n      <span class="project-infos__text">{{ date }}</span>\n    </li>\n\n    {% if href %}\n      <li class="project-infos__el project-infos__el--link">\n        <h4 class="project-infos__title">View online</h4>\n        <a class="project-infos__text" target="_blank" href="{{ href }}">{{ linktext }}</a>\n      </li>\n    {% endif %}\n\n  </ul>\n\n</div>'
+    e.exports = '<div class="project-infos project-infos--{{ id }} project-infos--is-hidden">\n\n  <ul class="project-infos__list">\n\n     {% if href %}\n      <li class="project-infos__el project-infos__el--link">\n        <h4 class="project-infos__title">View online</h4>\n        <a class="project-infos__text" target="_blank" href="{{ href }}">{{ linktext }}</a>\n      </li>\n    {% endif %}\n\n  </ul>\n\n</div>'
 }
 , function(e, t) {
     e.exports = {
