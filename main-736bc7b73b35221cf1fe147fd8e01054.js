@@ -19961,7 +19961,7 @@
         o.computeBoundingSphere(),
         this.add(new Hn(o,new Bn({
             color: r,
-            opacity: .2,
+            opacity: 1,
             transparent: !0,
             depthWrite: !1
         })))
@@ -27142,13 +27142,13 @@
 , function(e, t) {
     e.exports = {
         projects: {
-            "fanny-myard": {
-                title: "Love story",
-                ref: "fanny-myard",
+            "jambon-aoste": {
+                title: "test title",
+                ref: "jambon-aoste",
                 spacings: [-13.622, 6.319, 6.319, 6.319, 9.319, -.308, 6.664, 5.164, 5.664, 8.386],
                 sideOffset: .022,
                 counter: {
-                    text: "01",
+                    text: "00",
                     offsetX: .1752,
                     spacings: [0, 38]
                 },
@@ -27157,71 +27157,97 @@
                     offsetX: -.1562,
                     spacings: [0, 35, 35, 35, 35, 35, 35]
                 },
-                // role: "Creative direction, Interface design, User experience design",
-                // link: {
-                //     text: "fannymyard-design.com",
-                //     href: "http://fannymyard-design.com/"
-                // },
                 bgs: [{
-                    start: 5,
-                    end: 7,
+                    start: 1,
+                    end: 2,
                     color: 16728128
                 }],
                 modules: [{
                     type: "desc",
                     id: "intro",
                     title: "Presentation",
-                    text: "Fanny Myard is a young Belgian fashion designer. Her first range of ready-to-wear clothes, CMYK, enlights her creativity and sensitivity as an artist. The website stages each collection in a different universe with vibrant colors and graphic patterns."
+                    text: "Fanny Myard is a young Belgian fashio graphic patterns."
                 }, {
                     type: "img",
-                    size: [1400, 800],
-                    id: "img-0",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 800],
+                    size: [720, 1280],
                     id: "img-1",
-                    top: "xs"
-                }, 
-                {
-                    type: "desc",
-                    id: "text1",
-                    title: "text1",
-                    text: "Fanny Myard is a young Belgian fashion designer. Her first range of ready-to-wear clothes, CMYK, enlights her creativity and sensitivity as an artist. The website stages each collection in a different universe with vibrant colors and graphic patterns.",
-                    top: "xl"
-                }, 
-                {
-                    type: "fs",
-                    size: [1600, 780],
-                    id: "fs-0",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 800],
-                    id: "img-2",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 800],
-                    id: "img-3",
-                    top: "xs"
-                }, {
-                    type: "img",
-                    size: [1400, 800],
-                    id: "img-4",
-                    top: "xs"
+                    top: "xl",
+                    bottom: "xl"
                 }, {
                     type: "fs",
                     size: [1600, 780],
-                    id: "fs-1",
-                    top: "xl"
+                    id: "fs-0"
                 }, {
-                    type: "img",
-                    size: [1400, 800],
-                    id: "img-5",
-                    top: "xl"
+                    type: "3-phones",
+                    size: [271, 551],
+                    id: "phone",
+                    top: "xl",
+                    bottom: "xl"
                 }]
             },
+            // "fanny-myard": {
+            //     title: "Love story",
+            //     ref: "fanny-myard",
+            //     spacings: [-13.622, 6.319, 6.319, 6.319, 9.319, -.308, 6.664, 5.164, 5.664, 8.386],
+            //     sideOffset: .022,
+            //     counter: {
+            //         text: "01",
+            //         offsetX: .1752,
+            //         spacings: [0, 38]
+            //     },
+            //     date: {
+            //         text: "2019.04",
+            //         offsetX: -.1562,
+            //         spacings: [0, 35, 35, 35, 35, 35, 35]
+            //     },
+            //     bgs: [{
+            //         start: 5,
+            //         end: 7,
+            //         color: 16728128
+            //     }],
+            //     modules: [{
+            //         type: "desc",
+            //         id: "intro",
+            //         title: "Presentation",
+            //         text: "Fanny Myard  patterns."
+            //     }, {
+            //         type: "img",
+            //         size: [1400, 800],
+            //         id: "img-0",
+            //         top: "xl"
+            //     },
+            //     {
+            //         type: "fs",
+            //         size: [1600, 780],
+            //         id: "fs-0",
+            //         top: "xl"
+            //     }, {
+            //         type: "img",
+            //         size: [1400, 800],
+            //         id: "img-2",
+            //         top: "xl"
+            //     }, {
+            //         type: "img",
+            //         size: [1400, 800],
+            //         id: "img-3",
+            //         top: "xs"
+            //     }, {
+            //         type: "img",
+            //         size: [1400, 800],
+            //         id: "img-4",
+            //         top: "xs"
+            //     }, {
+            //         type: "fs",
+            //         size: [1600, 780],
+            //         id: "fs-1",
+            //         top: "xl"
+            //     }, {
+            //         type: "img",
+            //         size: [1400, 800],
+            //         id: "img-5",
+            //         top: "xl"
+            //     }]
+            // },
             "veuve-clicquot": {
                 title: "Veuve Clicquot",
                 ref: "veuve-clicquot",
@@ -27237,14 +27263,13 @@
                     offsetX: -.1976,
                     spacings: [0, 35, 35, 35]
                 },
-                role: "Creative direction, Interface design, Motion design, User experience design",
                 bgs: [{
-                    start: 4,
-                    end: 4,
+                    start: 0,
+                    end: 0,
                     color: 11084620
                 }, {
-                    start: 9,
-                    end: 9,
+                    start: 2,
+                    end: 2,
                     color: 11084620
                 }],
                 modules: [{
@@ -27267,43 +27292,6 @@
                     size: [1400, 700],
                     id: "fs-0",
                     top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 900],
-                    id: "img-2",
-                    top: "xl",
-                    bottom: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 2110],
-                    id: "img-3",
-                    top: "xl"
-                }, {
-                    type: "fs",
-                    size: [1400, 700],
-                    id: "fs-1",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 900],
-                    id: "img-4",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 900],
-                    id: "img-5",
-                    top: "xs",
-                    bottom: "xl"
-                }, {
-                    type: "3-phones",
-                    size: [271, 551],
-                    id: "mobile",
-                    top: "xl",
-                    bottom: "xl"
-                }, {
-                    type: "infos",
-                    top: "xl",
-                    bottom: "xl"
                 }]
             },
             "vodka-beluga": {
@@ -27317,56 +27305,29 @@
                     spacings: [0, 35]
                 },
                 date: {
-                    text: "2017",
+                    text: "2020",
                     offsetX: -.1738,
                     spacings: [0, 35, 35, 35]
                 },
-                role: "Creative direction, Interface design, Motion design, User experience design",
                 bgs: [{
-                    start: 5,
-                    end: 7,
+                    start: 0,
+                    end: 1,
                     color: 12953200
                 }, {
-                    start: 8,
-                    end: 9,
+                    start: 3,
+                    end: 3,
                     color: 1973790
                 }],
                 modules: [{
                     type: "desc",
                     id: "intro",
                     title: "Presentation",
-                    text: "Redesign concept for Beluga, an iconic Russian vodka created by true professionals striving for perfection, accuracy and tradition."
+                    text: "Redesign concept for Beluga"
                 }, {
                     type: "img",
                     size: [1400, 750],
                     id: "img-0",
                     top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 2010],
-                    id: "img-1",
-                    top: "xs"
-                }, {
-                    type: "img",
-                    size: [1400, 1736],
-                    id: "img-2",
-                    top: "xs"
-                }, {
-                    type: "img",
-                    size: [1400, 1709],
-                    id: "img-3",
-                    top: "xs",
-                    bottom: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 750],
-                    id: "img-4",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 1780],
-                    id: "img-5",
-                    top: "xs"
                 }, {
                     type: "img",
                     size: [1400, 1426],
@@ -27378,16 +27339,6 @@
                     size: [1400, 750],
                     id: "img-7",
                     top: "xl"
-                }, {
-                    type: "3-phones",
-                    size: [271, 551],
-                    id: "mobile",
-                    top: "xl",
-                    bottom: "xl"
-                }, {
-                    type: "infos",
-                    top: "xl",
-                    bottom: "xl"
                 }]
             },
             "i-love-dior": {
@@ -27407,8 +27358,8 @@
                 },
                 role: "Creative direction, Interface design, User experience design",
                 bgs: [{
-                    start: 5,
-                    end: 5,
+                    start: 2,
+                    end: 3,
                     color: 2236962
                 }],
                 modules: [{
@@ -27438,22 +27389,12 @@
                     id: "phone-1",
                     top: "xl",
                     bottom: "xl"
-                }, {
-                    type: "3-phones",
-                    size: [271, 551],
-                    id: "phone-2",
-                    top: "xl",
-                    bottom: "xl"
-                }, {
-                    type: "infos",
-                    top: "xl",
-                    bottom: "xl"
                 }]
             },
             "richard-mille": {
-                title: "Richard Mille",
+                title: "GETTING MARRIED",
                 ref: "richard-mille",
-                spacings: [-12.88, 7.73, 3.253, 6.697, 7.041, 7.041, 7.041, 1.347, 9.949, 8.763, 3.253, 6.008, 6.352],
+                spacings: [-12.88, 6.73, 6.253, 6.697, 6.041, 4.041, 8.041, 1.347, 8.949, 8.763, 6.253, 6.008, 6.352, 4.008, 6.352],
                 sideOffset: 0,
                 counter: {
                     text: "05",
@@ -27465,32 +27406,21 @@
                     offsetX: -.1728,
                     spacings: [0, 35, 35, 35]
                 },
-                role: "Interface design, User experience design",
                 bgs: [{
-                    start: 5,
-                    end: 6,
+                    start: 3,
+                    end: 3,
                     color: 2631720
                 }],
                 modules: [{
                     type: "desc",
                     id: "intro",
                     title: "Presentation",
-                    text: "One of the world’s most famous watch brand, Richard Mille, has conceived a revolutionary luxury watch for athletes. Lighter, sturdier and flatter, it is worn by Rafael Nadal, Wayde Van Niekerk and Mutaz Essa Barshim. The custom pages aim at featuring the brand’s know-how and most unique techniques and material ever used in watchmaking."
+                    text: "One of the world’s most famous watch brand, Richard Mille, has conceived a atchmaking."
                 }, {
                     type: "img",
                     size: [1400, 720],
                     id: "img-0",
                     top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 2048],
-                    id: "img-1",
-                    top: "xs"
-                }, {
-                    type: "img",
-                    size: [1400, 1880],
-                    id: "img-2",
-                    top: "xs"
                 }, {
                     type: "fs",
                     size: [1600, 850],
@@ -27501,128 +27431,6 @@
                     size: [1400, 953],
                     id: "img-3",
                     top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 1516],
-                    id: "img-4",
-                    top: "xs"
-                }, {
-                    type: "fs",
-                    size: [1600, 850],
-                    id: "fs-1",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 2048],
-                    id: "img-5",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 1900],
-                    id: "img-6",
-                    top: "xs"
-                }, {
-                    type: "img",
-                    size: [1400, 1756],
-                    id: "img-7",
-                    top: "xs"
-                }, {
-                    type: "infos",
-                    top: "xl",
-                    bottom: "xl"
-                }]
-            },
-            "jambon-aoste": {
-                title: "Jambon Aoste",
-                ref: "jambon-aoste",
-                spacings: [-11.557, 3.942, 7.041, 8.419, 6.352, 6.352, 4.975, 6.352, 6.352, 6.697, 6.697, 6.35],
-                sideOffset: 0,
-                counter: {
-                    text: "06",
-                    offsetX: .1789,
-                    spacings: [0, 32]
-                },
-                date: {
-                    text: "2017",
-                    offsetX: -.1655,
-                    spacings: [0, 35, 35, 35]
-                },
-                link: {
-                    text: "aoste.fr",
-                    href: "https://aoste.fr/"
-                },
-                role: "Interface design, User experience design",
-                bgs: [{
-                    start: 2,
-                    end: 3,
-                    color: 4668472
-                }, {
-                    start: 5,
-                    end: 5,
-                    color: 2169881
-                }, {
-                    start: 8,
-                    end: 9,
-                    color: 7689031
-                }],
-                modules: [{
-                    type: "desc",
-                    id: "intro",
-                    title: "Presentation",
-                    text: "The French gourmet ham Aoste offers quality products. A new content strategy was designed to relate with the magazine, recipes and club section. The content was re-thought to be upgraded but is still accessible to a wide audience as the brand image conveys."
-                }, {
-                    type: "img",
-                    size: [1400, 1800],
-                    id: "img-0",
-                    top: "xl",
-                    bottom: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 1220],
-                    id: "img-1",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 1268],
-                    id: "img-2",
-                    top: "xs",
-                    bottom: "xl"
-                }, {
-                    type: "fs",
-                    size: [1600, 780],
-                    id: "fs-0"
-                }, {
-                    type: "3-phones",
-                    size: [271, 551],
-                    id: "phone",
-                    top: "xl",
-                    bottom: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 850],
-                    id: "img-3",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 2048],
-                    id: "img-4",
-                    top: "xs",
-                    bottom: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 1796],
-                    id: "img-5",
-                    top: "xl"
-                }, {
-                    type: "img",
-                    size: [1400, 1796],
-                    id: "img-6",
-                    top: "xs",
-                    bottom: "xl"
-                }, {
-                    type: "infos",
-                    top: "xl",
-                    bottom: "xl"
                 }]
             }
         }
@@ -42016,34 +41824,34 @@ object-assign
                 e.position.z += .1,
                 e._config = [{
                     id: "about_img-1",
-                    size: [450, 299]
+                    size: [1080/2, 1440/2]
                 }, {
                     id: "about_img-2",
-                    size: [450, 450]
+                    size: [1080/2, 1659/2]
                 }, {
                     id: "about_img-3",
-                    size: [450, 291]
+                    size: [1080/2, 1436/2]
                 }, {
                     id: "about_img-4",
-                    size: [450, 450]
+                    size: [1441/2, 1079/2]
                 }, {
                     id: "about_img-5",
-                    size: [450, 666]
+                    size: [1080/2, 1659/2]
                 }, {
                     id: "about_img-6",
-                    size: [450, 307]
+                    size: [1080/2, 1437/2]
                 }, {
                     id: "about_img-7",
-                    size: [450, 667]
+                    size: [1080/2, 1437/2]
                 }, {
                     id: "about_img-8",
-                    size: [450, 300]
+                    size: [1080/2, 1437/2]
                 }, {
                     id: "about_img-9",
-                    size: [450, 450]
+                    size: [720/2, 1280/2]
                 }, {
                     id: "about_img-10",
-                    size: [450, 360]
+                    size: [720/2, 1280/2]
                 }],
                 e._nb = e._config.length,
                 e._create(),
@@ -49469,7 +49277,7 @@ object-assign
                     this.$signals.loader.hidden.add(this._onPreloaderHide),
                     this.clipboard = new c.default(".footer__el--email",{
                         text: function() {
-                            return "robin.mastromarino@gmail.com"
+                            return "1725763838@qq.com"
                         }
                     })
                 }
@@ -49859,7 +49667,7 @@ object-assign
                     }, 1e3),
                     this.clipboard = new f.default(".about__cta--mail",{
                         text: function() {
-                            return "robin.mastromarino@gmail.com"
+                            return "152003670"
                         }
                     })
                 }
