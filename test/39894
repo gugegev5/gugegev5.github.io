@@ -23,14 +23,12 @@ uniform sampler2D uMap1;
 uniform sampler2D uMap2;
 uniform sampler2D uMap3;
 uniform sampler2D uMap4;
-uniform sampler2D uMap5;
 
 uniform float uMapOffset0;
 uniform float uMapOffset1;
 uniform float uMapOffset2;
 uniform float uMapOffset3;
 uniform float uMapOffset4;
-uniform float uMapOffset5;
 uniform float uMapOffsetC;
 uniform float uMapOffsetCL;
 uniform float uMapOffsetCR;
@@ -122,13 +120,10 @@ void main() {
   vec4 texel4 = texture2D(uMap4, vec2(uv.x  + d + uMapOffset4, uv.y));
   texel4.a = step(0., uv.x + uMapOffset4) * (1. - step(1., uv.x + uMapOffset4));
 
-  vec4 texel5 = texture2D(uMap5, vec2(uv.x  + d + uMapOffset5, uv.y));
-  texel5.a = step(0., uv.x + uMapOffset5) * (1. - step(1., uv.x + uMapOffset5));
-
   vec4 texelC = texture2D(uMap0, vec2(uv.x  + d + uMapOffsetC, uv.y));
   texelC.a = step(0., uv.x + uMapOffsetC) * (1. - step(1., uv.x + uMapOffsetC));
 
-  vec4 texelCL = texture2D(uMap5, vec2(uv.x  + d + uMapOffsetCL + 1., uv.y));
+  vec4 texelCL = texture2D(uMap4, vec2(uv.x  + d + uMapOffsetCL + 1., uv.y));
   texelCL.a = step(0., uv.x + uMapOffsetCL) * (1. - step(1., uv.x + uMapOffsetCL));
 
   vec4 texelCR = texture2D(uMap1, vec2(uv.x  + d + uMapOffsetCR, uv.y));
@@ -140,7 +135,6 @@ void main() {
     texel2* texel2.a +
     texel3 * texel3.a +
     texel4 * texel4.a +
-    texel5 * texel5.a +
     texelC * texelC.a +
     texelCR * texelCR.a +
     texelCL * texelCL.a;
