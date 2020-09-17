@@ -1,0 +1,149 @@
+#define GLSLIFY 1
+#define SHADER_NAME BACKGROUND
+// #pragma glslify: snoise2 = require(glsl-noise/simplex/2d)
+
+varying vec2 vUv;
+uniform float uTime;
+uniform float uZoom;
+uniform float uMixBoost;
+uniform float uDisplacement;
+uniform float uBaseDistortion;
+uniform float uMaxDistortion;
+uniform float uDistortion;
+uniform float uStep;
+uniform vec2 uScreen;
+uniform vec2 uMouse;
+uniform vec2 uTextSize;
+uniform vec2 uUvOfsset;
+uniform vec2 uSpeed;
+uniform vec2 uMixRange;
+
+uniform sampler2D uMap0;
+uniform sampler2D uMap1;
+uniform sampler2D uMap2;
+uniform sampler2D uMap3;
+uniform sampler2D uMap4;
+uniform sampler2D uMap5;
+
+uniform float uMapOffset0;
+uniform float uMapOffset1;
+uniform float uMapOffset2;
+uniform float uMapOffset3;
+uniform float uMapOffset4;
+uniform float uMapOffset5;
+uniform float uMapOffsetC;
+uniform float uMapOffsetCL;
+uniform float uMapOffsetCR;
+
+float random (in vec2 _st) {
+  return fract(sin(dot(_st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+float noise (in vec2 _st) {
+    vec2 i = floor(_st);
+    vec2 f = fract(_st);
+
+    // Four corners in 2D of a tile
+    float a = random(i);
+    float b = random(i + vec2(1.0, 0.0));
+    float c = random(i + vec2(0.0, 1.0));
+    float d = random(i + vec2(1.0, 1.0));
+
+    vec2 u = f * f * (3.0 - 2.0 * f);
+
+    return mix(a, b, u.x) +
+            (c - a)* u.y * (1.0 - u.x) +
+            (d - b) * u.x * u.y;
+}
+
+#define NUM_OCTAVES 1
+
+float fbm (in vec2 _st) {
+  float v = 0.0;
+  float a = 0.5;
+  vec2 shift = vec2(100.0);
+  // Rotate to reduce axial bias
+  mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));
+  for (int i = 0; i < NUM_OCTAVES; ++i) {
+      v += a * noise(_st);
+      _st = rot * _st * 2.0 + shift;
+      a *= 0.5;
+  }
+  return v;
+}
+
+void main() {
+  vec2 st = (vUv + uUvOfsset * .1) * uZoom;
+  vec3 color = vec3(0.0);
+
+  vec2 r = vec2(0.);
+  r.x = fbm(st + 1.0 + vec2(1.7,9.2)+ 0.15 * uTime * .0001 * uSpeed.x);
+  r.y = fbm(st + 1.0 + vec2(8.3,2.8)+ 0.126 * uTime * .0001 * uSpeed.y);
+
+  float f = fbm(st + r );
+
+  color = mix(vec3(uMixRange.x), vec3(uMixRange.y), clamp( ( f * f ) * uMixBoost, 0.0, 1.0));
+
+  // invert
+  color = 1. - color;
+
+  // fbm magic
+  color = f * color;
+
+  vec2 stR = uScreen / uTextSize;
+
+  float m = max( stR.x, stR.y );
+
+  vec2 uv = vec2(vUv.x, vUv.y);
+  uv -= vec2(.5);
+  uv *= stR;
+  uv *= 1. / m;
+  uv += vec2(.5);
+
+  float yCenterProgress = exp(vUv.y - .5) * uMaxDistortion * -uDistortion;
+  float dist = min((1. - distance(vUv, uMouse)) / 2., 1.);
+
+  float d = (color.r * 1.- .05) * ( dist * 4.5 * uDistortion + uBaseDistortion);
+  uv.x += yCenterProgress;
+  uv.x += uDisplacement;
+
+  vec4 texel0 = texture2D(uMap0, vec2(uv.x + d, uv.y));
+  texel0.a = step(0., uv.x) * (1. - step(1., uv.x));
+
+  vec4 texel1 = texture2D(uMap1, vec2(uv.x  + d + uMapOffset1, uv.y));
+  texel1.a = step(0., uv.x + uMapOffset1) * (1. - step(1., uv.x + uMapOffset1));
+
+  vec4 texel2 = texture2D(uMap2, vec2(uv.x  + d + uMapOffset2, uv.y));
+  texel2.a = step(0., uv.x + uMapOffset2) * (1. - step(1., uv.x  + uMapOffset2));
+
+  vec4 texel3 = texture2D(uMap3, vec2(uv.x  + d + uMapOffset3, uv.y));
+  texel3.a = step(0., uv.x  + uMapOffset3) * (1. - step(1., uv.x + uMapOffset3));
+
+  vec4 texel4 = texture2D(uMap4, vec2(uv.x  + d + uMapOffset4, uv.y));
+  texel4.a = step(0., uv.x + uMapOffset4) * (1. - step(1., uv.x + uMapOffset4));
+
+  vec4 texel5 = texture2D(uMap5, vec2(uv.x  + d + uMapOffset5, uv.y));
+  texel5.a = step(0., uv.x + uMapOffset5) * (1. - step(1., uv.x + uMapOffset5));
+
+  vec4 texelC = texture2D(uMap0, vec2(uv.x  + d + uMapOffsetC, uv.y));
+  texelC.a = step(0., uv.x + uMapOffsetC) * (1. - step(1., uv.x + uMapOffsetC));
+
+  vec4 texelCL = texture2D(uMap5, vec2(uv.x  + d + uMapOffsetCL + 1., uv.y));
+  texelCL.a = step(0., uv.x + uMapOffsetCL) * (1. - step(1., uv.x + uMapOffsetCL));
+
+  vec4 texelCR = texture2D(uMap1, vec2(uv.x  + d + uMapOffsetCR, uv.y));
+  texelCR.a = step(0., uv.x + uMapOffsetCR) * (1. - step(1., uv.x + uMapOffsetCR));
+
+  gl_FragColor =
+    texel0 * texel0.a +
+    texel1 * texel1.a +
+    texel2* texel2.a +
+    texel3 * texel3.a +
+    texel4 * texel4.a +
+    texel5 * texel5.a +
+    texelC * texelC.a +
+    texelCR * texelCR.a +
+    texelCL * texelCL.a;
+
+  gl_FragColor = mix(gl_FragColor, vec4(1., 1., 1., 1.), step(vUv.y, uStep));
+}
